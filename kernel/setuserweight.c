@@ -8,7 +8,7 @@
 extern int errno ;
 extern int user_weight[USER_ARRAY_SIZE];
 
-SYSCALL_DEFINE2(getuserweight, int, uid, int, weight){
+SYSCALL_DEFINE2(setuserweight, int, uid, int, weight){
     if((uid <-1 || uid> MAX_UID) || weight < 0){
         errno = EINVAL;
         return -1;
