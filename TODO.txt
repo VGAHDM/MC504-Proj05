@@ -1,0 +1,10 @@
+Configurar os arquivos:
+include/linux/syscalls.h
+include/uapi/asm-generic/unistd.h
+kernel/Makefile (adicionar os .o)
+arch/x86/entry/syscalls/syscall_64.tbl (n tenho certeza desse, mas ta dizendo no tutorial do lkcamp)
+kernel/sys_ni.c
+
+Escrever os testes
+Dar um jeito de inicializar os pesos com o valor padrao
+Compilar e testar
