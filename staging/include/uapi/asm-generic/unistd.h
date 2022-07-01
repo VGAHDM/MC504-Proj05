@@ -892,8 +892,11 @@ __SYSCALL(__NR_getuserweight, sys_getuserweigth)
 #define __NR_setuserweight 452
 __SYSCALL(__NR_setuserweight, sys_setuserweigth)
 
+#define __NR_initializeuserweight 453
+__SYSCALL(__NR_initializeuserweight, sys_initializeuserweigth)
+
 #undef __NR_syscalls
-#define __NR_syscalls 453
+#define __NR_syscalls 454
 
 /*
  * 32 bit systems traditionally used different

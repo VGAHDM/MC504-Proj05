@@ -7,12 +7,14 @@
 
 extern int errno ;
 
-int user_weights[MAX_UID];
-EXPORT_SYMBOL(user_weights);
+extern int user_weights[MAX_UID];
+
 
 SYSCALL_DEFINE1(getuserweight, int, uid){
+    printf("uid = %d\n",uid);
     if (uid < -1 || uid > MAX_UID) {
         errno = EINVAL;
+        
         return -1;
         //Talvez seja possivel mandar um return -EINVAL (sem mudar o errno). Talvez nem seja assim que usa o errno, pode ser pra retornar o inteiro equivalente ao erro, nesse caso, 22. 
         
