@@ -1,37 +1,31 @@
 #include <linux/syscalls.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <errno.h>
+#include <linux/cred.h>
+#include <linux/kernel.h>
+
 
 #define MAX_UID 65535
-
-extern int errno ;
 extern int user_weights[MAX_UID];
 
-SYSCALL_DEFINE2(setuserweight, int, uid, int, weight, int, is_root){
+SYSCALL_DEFINE2(setuserweight, int, uid, int, weight){
+
 
     if((uid <-1 || uid> MAX_UID) || weight < 0){
-        errno = EINVAL;
-        return -1;
+//        errno = EINVAL; 
+        return -22;
     }
-    //////// parametro para verificar se é root
-    if(is_root){
-        uid = getuid();
-        user_weights[uid] = weight;    
-        return 0;
-    }
-    ////////////////////////
-    
-    else if (getuid() != 0){ //if not root
-        errno = EACCES;
-        return -1;
+
+
+    else if (get_current_cred()->uid.val != 0){ //if not root
+ //       errno = EACCES;
+        return -13;
+
     }
     else {
         if (uid == -1){ 
-             uid = getuid();
+             uid = get_current_cred()->uid.val;
         }
         user_weights[uid] = weight;
         return 0;
 
     }
-    
+}
