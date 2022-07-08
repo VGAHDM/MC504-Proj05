@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 {
   int id, weight, val;
   errno = 0;
+
   
   printf("Insira um usuario para consulta:\n");
   scanf("%d", &id);
@@ -31,3 +32,4 @@ int main(int argc, char **argv)
     
   return 0;
 }
+
