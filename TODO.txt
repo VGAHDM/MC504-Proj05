@@ -1,8 +1,0 @@
-Configurar os arquivos:
-Talvez adicionar mais uma syscall
-
-Escrever os testes
-Dar um jeito de inicializar os pesos com o valor padrao
-Compilar e testar
-
-Obs: Compilado sem erros
